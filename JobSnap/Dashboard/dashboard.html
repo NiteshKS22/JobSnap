@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Dashboard</title>
+    <style>/* Global styles */
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background-color: #f8f8f8;
+        }
+        
+        /* Navbar styles */
+        .navbar {
+          background-color: #333;
+          color: #fff;
+          padding: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        
+        .navbar h1 {
+          margin: 0;
+        }
+        
+        .dropdown {
+          position: relative;
+        }
+        
+        .dropdown-btn {
+          background-color: transparent;
+          border: none;
+          color: #fff;
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+        }
+        
+        .dropdown-btn i {
+          margin-right: 5px;
+        }
+        
+        .dropdown-btn span {
+          margin-right: 5px;
+        }
+        
+        .dropdown-content {
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+          display: none;
+        }
+        
+        .dropdown-content a {
+          color: #333;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+        
+        .dropdown-content a:hover {
+          background-color: #ddd;
+        }
+        
+        .show {
+          display: block;
+        }
+        
+        /* Dashboard styles */
+        .container {
+          margin: 20px;
+        }
+        
+        h2 {
+          margin-top: 0;
+          font-size: 32px;
+          color: #333;
+          text-align: center;
+        }
+        
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: stretch;
+        }
+        
+        .card {
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+          margin: 10px;
+          padding: 20px;
+          width: 300px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+        
+        .card h3 {
+          margin-top: 0;
+          font-size: 24px;
+          color: #333;
+        }
+        
+        .card p {
+          font-size: 18px;
+          color: #777;
+          margin-bottom: 20px;
+        }
+        
+        .card a {
+          background-color: #333;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-size: 18px;
+          transition: all 0.2s ease-in-out;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        .card a:hover {
+          background-color: #444;
+        }
+        
+        .card img {
+          max-width: 200px;
+          max-height: 200px;
+          margin-bottom: 20px;
+        }
+        
+        .card i {
+          font-size: 36px;
+          margin-bottom: 20px;
+          color: #777;
+        }
+        </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>User Dashboard</h1>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          <i class="fas fa-user"></i>
+          <span id="username"></span>
+          <i class="fas fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Profile</a>
+          <a href="#">Settings</a>
+          <a href="#" onclick="logout()">Logout</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <h2>Dashboard</h2>
+        <div class="row">
+          <div class="card">
+            <h3>Profile</h3>
+            <p>Edit your profile information.</p>
+            <a href="#">Edit Profile</a>
+          </div>
+          <div class="card">
+            <h3>Messages</h3>
+            <p>View and send messages to other users.</p>
+            <a href="#">View Messages</a>
+          </div>
+          <div class="card">
+            <h3>Settings</h3>
+            <p>Update your account settings.</p>
+            <a href="#">Account Settings</a>
+          </div>
+          <div class="card">
+            <h3>Notifications</h3>
+            <p>View your notifications.</p>
+            <a href="#">View Notifications</a>
+          </div>
+          <div class="card">
+            <h3>Friends</h3>
+            <p>Manage your friends list.</p>
+            <a href="#">Manage Friends</a>
+          </div>
+          <div class="card">
+            <h3>Photos</h3>
+            <p>View and upload photos.</p>
+            <a href="#">View Photos</a>
+          </div>
+        </div>
+    <script>
+      // Get the user's username from localStorage
+      const username = localStorage.getItem('username');
+      document.getElementById('username').textContent = username;
+      
+      function logout() {
+        // Clear the username from localStorage
+        localStorage.removeItem('username');
+        // Redirect to the login page
+        window.location.href = 'login.html';
+      }
+      
+      // Dropdown menu functionality
+      const dropdownBtn = document.querySelector('.dropdown-btn');
+      const dropdownContent = document.querySelector('.dropdown-content');
+      dropdownBtn.addEventListener('click', () => {
+        dropdownContent.classList.toggle('show');
+      });
+    </script>
+  </body>
+</html>

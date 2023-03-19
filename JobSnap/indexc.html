@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JOBSNAP</title>
+    <style>
+/* Style for header */
+/* Set up a background image for the body */
+body {
+    background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Style for the header */
+  header {
+    background-color: rgba(162, 162, 162, 0.259);
+    backdrop-filter: blur(7px);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  /* Style for the logo */
+  .logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: 1px 1px #444444;
+  }
+  
+  /* Style for the account section */
+  .account {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Style for the navigation bar */
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 70px;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  /* Style for the buttons */
+  .btn {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Style for the login button */
+  .login {
+    background-color: #FFFFFF;
+    border: none;
+    color: #4CAF50;
+  }
+  
+  .login:hover {
+    background-color: #4CAF50;
+    color: #FFFFFF;
+  }
+  
+  /* Style for the sign up button */
+  .signup {
+    background-color: #4CAF50;
+    border: none;
+    color: #FFFFFF;
+  }
+  
+  .signup:hover {
+    background-color: #FFFFFF;
+    color: #4CAF50;
+  }
+  
+
+  
+  .logo {
+    animation: zoomIn 2s infinite;
+  }
+  
+  /* Animation for nav links */
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  nav ul li {
+    animation: slideIn 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+  }
+  
+  /* Animation for buttons */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .account {
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 1s;
+  }
+  
+  .btn {
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 1.5s;
+  }
+  .nav-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(162, 162, 162, 0.259);
+    backdrop-filter: blur(7px);
+    margin-top: 70px;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .nav-button {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    background-color: #4CAF50;
+    border: none;
+    color: #FFFFFF;
+    margin: 0 10px;
+  }
+  
+  .nav-button:hover {
+    background-color: #FFFFFF;
+    color: #4CAF50;
+  }
+/* Style for the navigation bar */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.0);
+    backdrop-filter: blur(10px);
+    margin-top: 70px;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+    
+  
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">JobSnap</div>
+      <div class="account">
+        <button class="btn login" id="login-button">Log in</button>
+
+        <script>
+          var loginButton = document.getElementById("login-button");
+          loginButton.addEventListener("click", function() {
+            window.location.href = "Dashboard/login.html";
+          });
+        </script>
+        <button class="btn signup" id="signup-button">Sign up</button>
+
+        <script>
+          var signupButton = document.getElementById("signup-button");
+          signupButton.addEventListener("click", function() {
+            window.location.href = "Dashboard/signup.html";
+          });
+        </script>
+      </div>
+    </header>
+
+    <nav>
+        <div class="nav-buttons">
+          <button class="nav-button" onclick="window.location.href='job_details.html'">Jobs</button>
+          <button class="nav-button" onclick="window.location.href='companies.html'">Companies</button>
+          <button class="nav-button" onclick="window.location.href='skilljobs.html'">Skill-based search</button>
+          <button class="nav-button" onclick="window.location.href='job-referral.html'">Job referral</button>
+          <button class="nav-button" onclick="window.location.href='interview.html'">Interview preparation</button>
+          <button class="nav-button" onclick="window.location.href='Job Recomender.html'">Job Recommender</button>
+        </div>
+      </nav>
+      
+  </body>
+</html>

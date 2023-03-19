@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Referral Program</title>
+    <style>/* Set default styles */
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+        
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #dbd7d7;
+          color: #333;
+        }
+        
+        h1, h2 {
+          text-align: center;
+          margin: 50px 0 20px;
+          font-weight: bold;
+        }
+        
+        ul {
+          list-style: none;
+          text-align: center;
+        }
+        
+        li {
+          display: inline-block;
+          padding: 10px 20px;
+          margin: 0 10px;
+          background-color: #ff8c00;
+          color: #fff;
+          border-radius: 20px;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+        }
+        
+        li:hover {
+          transform: scale(1.1);
+          background-color: #262626;
+        }
+        
+        form {
+          margin: 50px auto;
+          max-width: 600px;
+          padding: 40px;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          animation: fade-in 0.5s ease-out;
+        }
+        
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        label {
+          display: block;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+        
+        input, select {
+          display: block;
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: none;
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          color: #333;
+          font-size: 16px;
+          font-family: inherit;
+        }
+        
+        input[type="file"] {
+          margin-bottom: 0;
+        }
+        
+        input[type="submit"] {
+          background-color: #ff8c00;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+        }
+        
+        input[type="submit"]:hover {
+          background-color: #262626;
+        }
+        
+        input:focus, select:focus {
+          outline: none;
+          box-shadow: 0 0 5px #ff8c00;
+        }
+        
+        input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+          border: 2px solid #ff8c00;
+          background-color: #fff;
+        }
+        
+        /* Add some media queries for smaller screens */
+        @media only screen and (max-width: 768px) {
+          form {
+            margin-top: 20px;
+          }
+          h1, h2 {
+            margin: 30px 0 10px;
+          }
+          ul {
+            margin-bottom: 30px;
+          }
+          li {
+            display: block;
+            margin: 0 auto 10px;
+          }
+        }
+        </style>
+  </head>
+  <body>
+    <h1>Available Positions</h1>
+    <ul>
+      <li>Software Engineer</li>
+      <li>Marketing Specialist</li>
+      <li>Sales Associate</li>
+    </ul>
+    <h2>Apply for a Position</h2>
+    <form action="/submit" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="contact">Contact Number:</label>
+      <input type="tel" id="contact" name="contact" required><br>
+
+      <label for="resume">Resume:</label>
+      <input type="file" id="resume" name="resume" required><br>
+
+      <label for="position">Position:</label>
+      <select id="position" name="position" required>
+        <option value="">Select a position</option>
+        <option value="Software Engineer">Software Engineer</option>
+        <option value="Marketing Specialist">Marketing Specialist</option>
+        <option value="Sales Associate">Sales Associate</option>
+      </select><br>
+
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

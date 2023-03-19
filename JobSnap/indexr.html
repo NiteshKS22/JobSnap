@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JOBSNAP</title>
+    <style>
+      body {
+        background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .header {
+        background-color: rgba(162, 162, 162, 0.259);
+        backdrop-filter: blur(7px);
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+      .header h1 {
+        margin: 0;
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+      }
+      .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease-in-out;
+      }
+      .button:hover {
+        background-color: #3e8e41;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+      }
+      .notification-button,
+      .message-button {
+        background-color: #ffffff;
+        border: none;
+        color: #333;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease-in-out;
+      }
+      .notification-button:hover,
+      .message-button:hover {
+        background-color: #f2f2f2;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+      }
+      body {
+        background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      
+      .analytics-container {
+        background-color: rgba(162, 162, 162, 0.259);
+        backdrop-filter: blur(7px);
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .analytics-summary {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        width: 80%;
+      }
+      
+      .analytics-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .analytics-item h3 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+        
+      }
+      
+      .analytics-item p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      
+      .analytics-chart {
+        width: 80%;
+        height: 300px;
+        /* Your chart or graph styles here */
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>JOBSNAP</h1>
+      <div>
+        <button class="notification-button">Notifications</button>
+        <button class="message-button">Messages</button>
+      </div>
+    </div>
+    <div class="button-container">
+      <button class="button">Create Job</button>
+      <button class="button">Edit Job</button>
+      <button class="button">View Applicants</button>
+    </div>
+    
+        <div class="analytics-container">
+          <h2>Company Analytics</h2>
+          <div class="analytics-summary">
+            <div class="analytics-item">
+              <h3>Total Jobs</h3>
+              <p>25</p>
+            </div>
+            <div class="analytics-item">
+              <h3>Applications</h3>
+              <p>350</p>
+            </div>
+            <div class="analytics-item">
+              <h3>Shortlisted</h3>
+              <p>75</p>
+            </div>
+            <div class="analytics-item">
+              <h3>Interviews</h3>
+              <p>20</p>
+            </div>
+          </div>
+          <div class="analytics-chart">
+            <!-- Your chart or graph here -->
+          </div>
+        </div>
+        
+     
+      
+  </body>
+</html>

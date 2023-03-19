@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Filter Candidates by Skill</title>
+	<style>
+        body {
+            background-color: #2bb385;
+            background-image: linear-gradient(to bottom, #dbd7d7, #dbd7d7);
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+          }
+          
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+    
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
+        }
+    
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #ccc;
+            margin-bottom: 20px;
+        }
+    
+        #candidates {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        #candidatesTable tr {
+            font-weight: bold;
+        }
+    
+        .candidate-card {
+            width: calc(33.33% - 20px);
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+        }
+    
+        .candidate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 5px #ccc;
+            transition: all 0.3s ease-in-out;
+        }
+    
+        .candidate-card .name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    
+        .candidate-card .skills {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+         
+        .candidate-card .availability {
+            font-size: 16px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+    
+        .candidate-card .location {
+            font-size: 16px;
+            color: #999;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+    
+        .search-results {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e32e2e;
+            background-color: #ff5500;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+    
+        .no-results {
+            font-size: 18px;
+            font-weight: bold;
+            color: #f00;
+            margin-top: 20px;
+        }
+        #searchInput:focus {
+            outline: none;
+            box-shadow: 0 0 5px #333;
+        }
+          
+        #searchInput:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px #ccc;
+        }
+        #searchInput:focus {
+            border: 2px solid #008080;
+            box-shadow: 0 0 5px #008080;
+        }
+        #searchInput:hover {
+            border: 2px solid #2b8b8b;
+            box-shadow: 0 0 5px #008080;
+        }
+        
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+    
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+        }
+    
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+    
+        .contact-btn {
+            background-color: #00bfff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+    
+        .contact-btn:hover {
+            background-color: #0077b3;
+        }
+        
+    </style>
+    
+    
+
+    
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-size: 36px; font-weight: bold; color: #333; margin-bottom: 30px; animation: pulse 1s infinite;">Job Candidates</h1>
+      <input type="text" placeholder="Search by Skill" id="searchInput" style="border: 2px solid #ccc; border-radius: 5px; padding: 10px; font-size: 16px; box-shadow: 0 0 5px #ccc; transition: all 0.3s ease-in-out;">
+
+      <button type="button" onclick="filterCandidates()" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; font-size: 18px; font-weight: bold; position: relative; left: 50%; transform: translateX(-50%); transition: background-color 0.2s ease-in-out;">
+        Search
+        <span style="position: absolute; top: -5px; right: -5px; width: 15px; height: 15px; border-radius: 50%; background-color: #fff; border: 2px solid #007bff; display: none;"></span>
+      </button>
+      
+      <table id="candidatesTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Skills</th>
+                <th>Experience</th>
+                <th>Availability</th>
+                <th>Location</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Smith</td>
+                <td>HTML, CSS, JavaScript</td>
+                <td>5 years</td>
+                <td>Available</td>
+                <td>New York, NY</td>
+                <td>j.smith@email.com</td>
+            </tr>
+            <tr>
+                <td>Jane Doe</td>
+                <td>Python, SQL, Data Analysis</td>
+                <td>3 years</td>
+                <td>Available</td>
+                <td>San Francisco, CA</td>
+                <td>jane.doe@email.com</td>
+            </tr>
+            <tr>
+                <td>David Lee</td>
+                <td>React, Node.js, GraphQL</td>
+                <td>4 years</td>
+                <td>Available</td>
+                <td>Seattle, WA</td>
+                <td>d.lee@email.com</td>
+            </tr>
+            <tr>
+                <td>Emily Chen</td>
+                <td>Java, Spring, Hibernate</td>
+                <td>2 years</td>
+                <td>Not Available</td>
+                <td>Boston, MA</td>
+                <td>emily.chen@email.com</td>
+            </tr>
+            <tr>
+                <td>Michael Wong</td>
+                <td>PHP, MySQL, Laravel</td>
+                <td>7 years</td>
+                <td>Available</td>
+                <td>Los Angeles, CA</td>
+                <td>michael.wong@email.com</td>
+            </tr>
+            <tr>
+                <td>Amit Sharma</td>
+                <td>Web Developer</td>
+                <td>HTML, CSS, JavaScript, PHP</td>
+                <td>5 years</td>
+                <td>Delhi, India</td>
+                <td>amit@example.com<br>+91 9876543210</td>
+            </tr>
+            <tr>
+                <td>Sneha Patel</td>
+                <td>UI/UX Designer</td>
+                <td>Adobe Photoshop, Sketch, InVision</td>
+                <td>3 years</td>
+                <td>Mumbai, India</td>
+                <td>sneha@example.com<br>+91 9876543210</td>
+            </tr>
+            <tr>
+                <td>Rahul Singh</td>
+                <td>Data Analyst</td>
+                <td>Python, R, SQL</td>
+                <td>4 years</td>
+                <td>Bangalore, India</td>
+                <td>rahul@example.com<br>+91 9876543210</td>
+            </tr>
+              
+        </tbody>
+    </table>
+    </div>
+    <script>
+
+        const button = document.querySelector('button');
+        const circle = button.querySelector('span');
+        
+        button.addEventListener('mouseover', () => {
+          circle.style.display = 'block';
+          button.style.backgroundColor = '#fff';
+          button.style.color = '#007bff';
+        });
+        
+        button.addEventListener('mouseout', () => {
+          circle.style.display = 'none';
+          button.style.backgroundColor = '#007bff';
+          button.style.color = '#fff';
+        });
+      function filterCandidates() {
+        var input, filter, table, tr, td, i, j, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("candidatesTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td");
+          for (j = 0; j < td.length; j++) {
+            txtValue = td[j].textContent || td[j].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+              break;
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+  

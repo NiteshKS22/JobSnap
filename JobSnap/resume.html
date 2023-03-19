@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resume Analysis</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<header>
+		<h1>Resume Analysis</h1>
+	</header>
+	<main>
+		<section>
+			<h2>Upload Your Resume</h2>
+			<form action="upload.php" method="POST" enctype="multipart/form-data">
+				<input type="file" name="resume" accept=".pdf,.doc,.docx">
+				<input type="submit" value="Submit">
+			</form>
+		</section>
+		<section>
+			<h2>Job Suggestions</h2>
+			<div id="job-suggestions">
+				<!-- Job suggestions will be displayed here -->
+			</div>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023 Resume Analysis</p>
+	</footer>
+	<script src="script.js"></script>
+</body>
+</html>

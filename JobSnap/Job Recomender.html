@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Job Suggestions</title>
+    <style>
+        /* CSS styles for the page */
+/* CSS styles for the page */
+/* CSS styles for the page */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dbd7d7;
+  }
+  
+  h1 {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    background-color:#3aded9;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(34, 29, 29, 0.1);
+  }
+  
+  p {
+    color: #666;
+  }
+  
+  label {
+    display: grid;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  #results {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  #results h3 {
+    color: #333;
+    margin-top: 0;
+  }
+  
+  #results p {
+    color: #666;
+    margin-bottom: 0;
+  }
+  
+  #programming-subcategory,
+  #design-subcategory,
+  #cs-subcategory {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  
+  #programming-subcategory label,
+  #design-subcategory label,
+  #cs-subcategory label {
+    display: inline-block;
+    margin-right: 20px;
+    color: #333;
+  }
+  
+  #programming-subcategory label:hover,
+  #design-subcategory label:hover,
+  #cs-subcategory label:hover {
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  
+  input[type="checkbox"]:checked + label {
+    font-weight: bold;
+  }
+  
+  input[type="submit"] {
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+  }
+  
+  input[type="submit"]:hover {
+    background: linear-gradient(90deg, #1CB5E0 0%, #4CD4A5 100%);
+  }
+/* Style the job suggestion container */
+#resultsDiv {
+  background-color: #f7f7f7;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Style the job suggestion titles */
+h3 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style the job suggestion descriptions */
+p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Style the apply button */
+.apply-button {
+  background-color: #0095ff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Change the apply button color on hover */
+.apply-button:hover {
+  background-color: #0077cc;
+}
+
+  
+ </style>
+  </head>
+  <body>
+    <h1>Job Suggestions</h1>
+    <p>Select your skills:</p>
+    <form id="jobForm">
+      <label><input type="checkbox" name="skills" value="programming">Programming</label><br>
+      <div id="programming-subcategory" style="display: none;">
+        <label><input type="checkbox" name="skills" value="c++">C++</label><br>
+        <label><input type="checkbox" name="skills" value="c">C</label><br>
+        <label><input type="checkbox" name="skills" value="python">Python</label><br>
+        <label><input type="checkbox" name="skills" value="shell">Shell</label><br>
+      </div>
+      <label><input type="checkbox" name="skills" value="design">Design</label><br>
+      <div id="design-subcategory" style="display: none;">
+        <label><input type="checkbox" name="skills" value="graphic design">Graphic Design</label><br>
+        <label><input type="checkbox" name="skills" value="web design">Web Design</label><br>
+        <label><input type="checkbox" name="skills"  value="UI/UX design">UI/UX Design</label><br>
+        <label><input type="checkbox" name="skills" value="Autocad">Autocad 2/3D</label><br>
+      </div>
+      <label><input type="checkbox" name="skills" value="cybersec">Cybersecurity</label><br>
+      <div id="cs-subcategory" style="display: none;">
+        <label><input type="checkbox" name="skills" value="netw">Networking</label><br>
+        <label><input type="checkbox" name="skills" value="ceh">Ethical Hacking</label><br>
+        <label><input type="checkbox" name="skills"  value="dfir">Digital Forensic</label><br>
+        <label><input type="checkbox" name="skills" value="malan">Malware Analysis</label><br>
+      </div>
+      
+      <input type="submit" value="Find Jobs">
+    </form>
+    <div id="results"></div>
+    <script>
+      const jobForm = document.getElementById("jobForm");
+      const resultsDiv = document.getElementById("results");
+      
+      jobForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // prevent form submission
+        const selectedSkills = Array.from(jobForm.elements.skills) // convert NodeList to array
+          .filter(skill => skill.checked)
+          .map(skill => skill.value.toLowerCase()); // lowercase for case-insensitivity
+      
+        let jobSuggestions = "";
+      
+        // suggest jobs based on selected skills
+        if (selectedSkills.includes("programming")) {
+          jobSuggestions += `
+            <h3>Software Developer</h3>
+            <p>Acme Corporation</p>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod lacus eget nibh scelerisque, sed fringilla est elementum.</p>
+            <button class="apply-button">Apply</button>
+            <hr>
+            <h3>Web Developer</h3>
+            <p>Google</p>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod lacus eget nibh scelerisque, sed fringilla est elementum.</p>
+            <button class="apply-button">Apply</button>
+            <hr>
+          `;
+        }
+        if (selectedSkills.includes("design")) {
+          jobSuggestions += `
+            <h3>Graphic Designer</h3>
+            <p>Globex Corporation</p>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod lacus eget nibh scelerisque, sed fringilla est elementum.</p>
+            <button class="apply-button">Apply</button>
+            <hr>
+            <h3>UX/UI Designer</h3>
+            <p>Initech Corporation</p>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod lacus eget nibh scelerisque, sed fringilla est elementum.</p>
+            <button class="apply-button">Apply</button>
+            <hr>
+          `;
+        }
+        if (selectedSkills.includes("cybersec")) {
+          jobSuggestions += `
+            <h3>Network Engineer</h3>
+            <p>Wayne Enterprises</p>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod lacus eget nibh scelerisque, sed fringilla est elementum.</p>
+            <button class="apply-button">Apply</button>
+            <hr>
+            <h3>Malware Analyst</h3>
+            <p>Vandelay Industries</p>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod lacus eget nibh scelerisque, sed fringilla est elementum.</p>
+            <button class="apply-button">Apply</button>
+            <hr>
+          `;
+        }
+      
+        if (jobSuggestions) {
+          resultsDiv.innerHTML = `
+            <h2>Suggested jobs:</h2>
+            ${jobSuggestions}
+          `;
+        } else {
+          resultsDiv.innerHTML = "<p>No jobs found for selected skills.</p>";
+        }
+      });
+      
+    </script>
+  </body>
+</html>

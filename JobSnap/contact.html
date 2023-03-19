@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Us</title>
+    <style>/* Set the font family and background color for the entire page */
+      /* Set the font family and background color for the entire page */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #dbd7d7;
+}
+
+/* Style the header section */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Style the main section */
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Style the form fields */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+textarea {
+  height: 150px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+/* Style the footer section */
+footer {
+  background-color: #dbd7d7;
+  padding: 20px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+      </style>
+  </head>
+  <body>
+    <header>
+      <h1>Contact Us</h1>
+      <p>Get in touch with us using the form below.</p>
+    </header>
+    
+    <main>
+      <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br>
+
+        <input type="submit" value="Send Message">
+      </form>
+    </main>
+
+    <footer>
+      <p>Alternatively, you can reach us at:</p>
+      <ul>
+        <li>Email: <a href="mailto:info@example.com">info@example.com</a></li>
+        <li>Phone: 1-800-123-4567</li>
+        <li>Address: 123 Main Street, Anytown USA</li>
+      </ul>
+    </footer>
+  </body>
+</html>

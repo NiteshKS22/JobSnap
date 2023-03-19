@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Search</title>
+  <style>
+    /* CSS for button styling */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #2980b9;
+    }
+
+    /* CSS for button container */
+    .btn-container {
+      margin-top: 50px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="btn-container">
+    <button class="btn" id="governmentBtn">Government Jobs</button>
+    <button class="btn" id="freelancingBtn">Freelancing</button>
+    <button class="btn" id="technicalBtn">Technical Jobs</button>
+  </div>
+
+  <script>
+    // JavaScript for button animation
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('mouseover', function() {
+        const randomColor = Math.floor(Math.random()*16777215).toString(16); // Generate random hex color
+        btn.style.backgroundColor = '#' + randomColor;
+      });
+      btn.addEventListener('mouseout', function() {
+        btn.style.backgroundColor = '#3498db'; // Reset to default color
+      });
+    });
+
+    // JavaScript for button functionality
+    const governmentBtn = document.getElementById('governmentBtn');
+    governmentBtn.addEventListener('click', function() {
+      alert('Showing Government Jobs');
+    });
+
+    const freelancingBtn = document.getElementById('freelancingBtn');
+    freelancingBtn.addEventListener('click', function() {
+      alert('Showing Freelancing Jobs');
+    });
+
+    const technicalBtn = document.getElementById('technicalBtn');
+    technicalBtn.addEventListener('click', function() {
+      alert('Showing Technical Jobs');
+    });
+  </script>
+</body>
+</html>
