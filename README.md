@@ -90,21 +90,12 @@ JobSnap is a comprehensive recruitment platform that benefits both job seekers a
 
 By combining intelligent matching systems with an intuitive interface, JobSnap has the potential to transform the hiring experience.
 
----
 
-## 📄 License
-
-Add your license information here.
-
----
 
 ## 🤝 Contributing
 
-Contributions are welcome!  
-Feel free to submit pull requests or open issues to improve JobSnap.
+Ashish Vishwakarma
 
 ---
 
-## 📬 Contact
 
-Add your project contact information here.
